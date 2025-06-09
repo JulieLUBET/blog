@@ -87,7 +87,7 @@ function App() {
       {/* ------------------- NAVBAR ------------------- */}
       <nav className="navbar">
         <div className="navbar-logo">
-          <img src="./images/jl.png" alt="Logo Univers Yuna" />
+          <img src="images/jl.png" alt="Logo Univers Yuna" />
           <span>Univers Yuna</span>
         </div>
         <ul className="navbar-links">
@@ -145,8 +145,8 @@ function App() {
 
       {/* ------------------- LOGOS & TITRE ------------------- */}
       <div>
-        <img src="./images/jl.png" className="logo" alt="Vite logo" />
-        <img src="./images/logo.png" className="logo react" alt="React logo"/>
+        <img src="images/jl.png" className="logo" alt="Vite logo" />
+        <img src="images/logo.png" className="logo react" alt="React logo"/>
       </div>
       <h1>Univers Yuna</h1>
 
