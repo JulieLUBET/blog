@@ -42,27 +42,43 @@ function App() {
   };
 
   const removeArticle = (article) => {
+    let codeInput = "";
     Modal.confirm({
-      title: "Supprimer l'article",
-      content: "Es-tu sûr de vouloir supprimer cet article ? Cette action est irréversible.",
-      okText: "Oui, supprimer",
+      title: "Suppression d'un article",
+      content: (
+        <div>
+          <p>Pour supprimer cet article, entrez le code de confirmation.</p>
+          <input
+            type="password"
+            placeholder="Code de confirmation"
+            onChange={e => codeInput = e.target.value}
+            style={{ width: "100%", marginTop: 8, padding: 6, borderRadius: 6, border: "1px solid #ccc" }}
+          />
+        </div>
+      ),
+      okText: "Supprimer",
       okType: "danger",
       cancelText: "Annuler",
       centered: true,
-      className: "custom-delete-modal",
-      maskStyle: { background: "rgba(255,126,95,0.10)" },
-      bodyStyle: { borderRadius: 16, padding: 24 },
       onOk() {
-        return deleteArticle(article)
-          .then(() => {
-            setArticles(prevArticles => prevArticles.filter(a => a.id !== article.id));
-          })
-          .catch((error) => {
-            Modal.error({
-              title: "Erreur",
-              content: "Erreur lors de la suppression de l'article : " + error.message,
+        if (codeInput === "0000") { // <-- Le code n'est plus affiché, il reste secret
+          return deleteArticle(article)
+            .then(() => {
+              setArticles(prevArticles => prevArticles.filter(a => a.id !== article.id));
+            })
+            .catch((error) => {
+              Modal.error({
+                title: "Erreur",
+                content: "Erreur lors de la suppression de l'article : " + error.message,
+              });
             });
+        } else {
+          Modal.error({
+            title: "Code incorrect",
+            content: "Le code de confirmation est incorrect. Suppression annulée.",
           });
+          return Promise.reject();
+        }
       }
     });
   };
