@@ -66,7 +66,7 @@ body, html, #root {
   transition: color 0.2s;
 }
 .navbar-links li a:hover {
-  color: #fffbe6;
+  color: #ff7e5f;
 }
 .navbar-socials {
   display: flex;
@@ -81,6 +81,34 @@ body, html, #root {
 .social-icon.facebook:hover { color: #1877f3; }
 .social-icon.instagram:hover { color: #e1306c; }
 .social-icon.youtube:hover { color: #ff0000; }
+.navbar-btn,
+.navbar-btn:link,
+.navbar-btn:visited {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 8px 18px;
+  border-radius: 18px;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 2px 8px #ff7e5f22;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar-btn:hover,
+.navbar-btn:focus,
+.archives-return-btn:hover,
+.archives-return-btn:focus {
+  background: #ffe0c2;
+  color: #ff7e5f;
+  outline: none;
+  box-shadow: 0 4px 16px #ff7e5f22;
+}
 
 /* ------------------- LOGOS ------------------- */
 /* Logos principaux sous la navbar */
@@ -143,6 +171,7 @@ body, html, #root {
 .ant-card p {
   margin-bottom: 8px;
   font-size: 1.08em;
+  white-space: pre-line;
 }
 .article-date, .ant-card p:last-of-type {
   font-size: 0.92em;
@@ -276,6 +305,7 @@ body, html, #root {
 }
 .modal-article-content {
   font-size: 1.08em;
+  white-space: pre-line; /* Respecte les retours à la ligne */
 }
 
 /* ------------------- MENU BURGER & MENU MOBILE ------------------- */
@@ -343,6 +373,127 @@ body, html, #root {
 .mobile-socials .social-icon.facebook:hover { color: #1877f3; }
 .mobile-socials .social-icon.instagram:hover { color: #e1306c; }
 .mobile-socials .social-icon.youtube:hover { color: #ff0000; }
+
+/* ------------------- ARCHIVES ------------------- */
+.archives-container {
+  padding: 2em 0;
+  text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  background: #fffbe6;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.archives-table-wrapper {
+  overflow-x: auto;
+  margin: 0 auto;
+  max-width: 98vw;
+  box-sizing: border-box;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.archives-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #ff7e5f22;
+  font-size: 1em;
+}
+.archives-table th, .archives-table td {
+  border: 1px solid #ffe0c2;
+  padding: 10px 8px;
+  text-align: left;
+}
+.archives-table th {
+  background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
+  color: #fff;
+  font-weight: bold;
+}
+.archives-table tr:nth-child(even) {
+  background: #fffbe6;
+}
+.archives-table tr:nth-child(odd) {
+  background: #fff;
+}
+.archives-return-btn {
+  background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 18px;
+  padding: 10px 28px;
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  display: inline-block;
+  box-shadow: 0 2px 8px #ff7e5f22;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.archives-return-btn:hover,
+.archives-return-btn:focus {
+  background: linear-gradient(90deg, #feb47b 0%, #ff7e5f 100%);
+  color: #fffbe6;
+  outline: none;
+}
+.archives-img {
+  width: 100%;
+  object-fit: cover; /* Remplit toute la case, quitte à couper l'image */
+  border-radius: 6px;
+  display: block;
+  background: #fff;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.archives-img:hover {
+  box-shadow: 0 0 0 3px #ff7e5f55;
+}
+.archives-table td {
+  vertical-align: top;
+  position: relative;
+}
+.archives-content-cell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line; /* Respecte les retours à la ligne */
+}
+
+/* Définition explicite de la largeur de chaque colonne du tableau des archives */
+.archives-table th:nth-child(1),
+.archives-table td:nth-child(1) {
+  width: 10%;
+  max-width: 10%;
+  min-width: 120px;
+}
+
+.archives-table th:nth-child(2),
+.archives-table td:nth-child(2) {
+  width: 10%;
+  max-width: 10%;
+  min-width: 90px;
+  white-space: nowrap;
+}
+
+.archives-table th:nth-child(3),
+.archives-table td:nth-child(3) {
+  width: 70%;
+  max-width: 70%;
+  min-width: 180px;
+}
+
+.archives-table th:nth-child(4),
+.archives-table td:nth-child(4) {
+  width: 10%;
+  max-width: 10%;
+  min-width: 80px;
+}
 
 /* ------------------- RESPONSIVE ------------------- */
 @media (max-width: 700px) {
